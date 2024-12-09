@@ -14,13 +14,21 @@ app.post("/user/signin", (req, res) => {
   });
 });
 
-app.get("/user/courses", (req, res) => {
+//user able to see his purchased courses
+app.get("/user/purchases", (req, res) => {
+  res.json({
+    message: "success",
+  });
+});
+//when user wants to purchase a course
+app.post("/user/purchase", (req, res) => {
   res.json({
     message: "success",
   });
 });
 
-app.get("/user/purchasedcourses", (req, res) => {
+//all courses
+app.get("/couses", (req, res) => {
   res.json({
     message: "successs",
   });
