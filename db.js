@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId;
 
 const userSchema = new Schema({
-  email: { type: String, unique: true },
-  password: String,
+  //   email: { type: String, unique: true },
+  //   password: String,
   firstName: String,
-  lastName: String,
+  //   lastName: String,
 });
 
 const courseSchema = new Schema({
@@ -18,7 +18,7 @@ const courseSchema = new Schema({
   creatorId: ObjectId,
 });
 
-const creatorSchema = new Schema({
+const adminSchema = new Schema({
   email: { type: String, unique: true },
   password: String,
   firstName: String,
@@ -32,12 +32,12 @@ const purchasesSchema = new Schema({
 
 const userModel = mongoose.model("User", userSchema);
 const courseModel = mongoose.model("Course", courseSchema);
-const creatorModel = mongoose.model("Creator", creatorSchema);
+const adminModel = mongoose.model("Admin", adminSchema);
 const purchasesModel = mongoose.model("purchases", purchasesSchema);
 
-mongoose.export = {
+module.exports = {
   userModel,
   courseModel,
-  creatorModel,
+  adminModel,
   purchasesModel,
 };
