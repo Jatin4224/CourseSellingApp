@@ -7,6 +7,14 @@ app.use(express.json());
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/course", courseRouter);
 app.use("/api/v1/admin", adminRouter);
-app.listen(3000, (req, res) => {
-  console.log("server running fine");
-});
+
+async function connectDb() {
+  await mongoose.connect(
+    "mongodb+srv://jatin4224:MyrigWDrXvTCGMeB@cluster4224.cctoa.mongodb.net/courseApp"
+  );
+  app.listen(3000, (req, res) => {
+    console.log("server running fine");
+  });
+}
+
+connectDb();
